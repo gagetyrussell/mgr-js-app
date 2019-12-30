@@ -13,9 +13,9 @@ export default function Login(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
     try {
       await Auth.signIn(email, password);
+      alert('here')
       alert("Logged in");
     } catch (e) {
       alert(e.message);

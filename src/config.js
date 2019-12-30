@@ -7,6 +7,6 @@ export default {
     REGION: "us-east-1",
     USER_POOL_ID: "us-east-1_AhleHc0IP",
     APP_CLIENT_ID: "7snnj35ibuk6nhd44kgi377m63",
-    IDENTITY_POOL_ID: "YOUR_IDENTITY_POOL_ID"
+    IDENTITY_POOL_ID: "us-east-1:2d5d7933-94f5-4ae9-bee5-a46ac7c65352"
   }
 };
