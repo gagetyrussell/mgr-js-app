@@ -66,7 +66,7 @@ function App(props) {
           <Nav pullLeft>
             {isAuthenticated
               ?  <>
-                  <LinkContainer to="/dataupload">
+                  <LinkContainer to="/uploaddata">
                     <NavItem>Data</NavItem>
                   </LinkContainer>
                 </>
