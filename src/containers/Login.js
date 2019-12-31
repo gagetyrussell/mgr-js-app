@@ -31,6 +31,9 @@ export default function Login(props) {
     }
   }
 
+  // Auth.currentSession()
+  //     .then(data => console.log(data));
+
   return (
     <div className="Login">
       <form onSubmit={handleSubmit}>
