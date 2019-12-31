@@ -33,26 +33,6 @@ const rejectStyle = {
   borderColor: '#ff1744'
 };
 
-function getSignedUrl(user_id, filename) {
-  let signed_url = MGRAPI.get('/getPresignedUserDataUrl', {
-    params: {
-      user_id: user_id,
-      file_name: filename
-    }
-  })
-  // const params = {
-  //   objectName: file.name,
-  //   contentType: file.type
-  // };
-
-  // .then(data => {
-  //   callback(data);
-  // })
-  // .catch(error => {
-  //   console.error(error);
-  // });
-}
-
 function getUserName() {
   Auth.currentAuthenticatedUser()
   .then(user => {
