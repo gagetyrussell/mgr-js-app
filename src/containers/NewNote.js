@@ -3,11 +3,16 @@ import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewNote.css";
+import { Auth } from "aws-amplify";
+
 
 export default function NewNote(props) {
   const file = useRef(null);
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  Auth.currentSession()
+      .then(data => console.log(data));
 
   function validateForm() {
     return content.length > 0;
