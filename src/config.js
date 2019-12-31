@@ -1,6 +1,6 @@
 export default {
   MAX_ATTACHMENT_SIZE: 5000000,
-  MGR_API_URL: "https://qcp3xrmpmj.execute-api.us-east-1.amazonaws.com/dev/"
+  MGR_API_URL: "https://qcp3xrmpmj.execute-api.us-east-1.amazonaws.com/dev/",
   LOCAL_MGR_API_URL: "http://localhost:5000/",
   apiGateway: {
     REGION: "us-east-1",
