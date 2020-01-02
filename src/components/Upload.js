@@ -62,8 +62,6 @@ function MyDropzone(user) {
             data: formData,
             options: options
           });
-          console.log(file)
-          console.log(result.username)
           return result;
         });
       }

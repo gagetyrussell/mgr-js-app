@@ -8,6 +8,8 @@ import Signup from "./containers/Signup";
 import NewNote from "./containers/NewNote";
 import UserPage from "./containers/UserPage";
 import UploadDataPage from "./containers/UploadDataPage";
+import ReportBuilderV1 from "./containers/ReportBuilderV1";
+
 
 
 export default function Routes({ appProps }) {
@@ -19,6 +21,7 @@ export default function Routes({ appProps }) {
       <AppliedRoute path="/notes/new" exact component={NewNote} appProps={appProps} />
       <AppliedRoute path="/user" exact component={UserPage} appProps={appProps} />
       <AppliedRoute path="/uploaddata" exact component={UploadDataPage} appProps={appProps} />
+      <AppliedRoute path="/ReportBuilderV1" exact component={ReportBuilderV1} appProps={appProps} />
       { /* Finally, catch all unmatched routes */ }
       <Route component={NotFound} />
     </Switch>

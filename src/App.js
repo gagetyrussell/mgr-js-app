@@ -67,7 +67,10 @@ function App(props) {
             {isAuthenticated
               ?  <>
                   <LinkContainer to="/uploaddata">
-                    <NavItem>Data</NavItem>
+                    <NavItem>Data Manager</NavItem>
+                  </LinkContainer>
+                  <LinkContainer to="/ReportBuilderV1">
+                    <NavItem>Report Builder</NavItem>
                   </LinkContainer>
                 </>
               : <>
