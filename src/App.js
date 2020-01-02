@@ -40,7 +40,7 @@ function App(props) {
       <Navbar fluid collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/" className="logofont">storyteller</Link>
+            <Link to="/">storyteller</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -67,7 +67,10 @@ function App(props) {
             {isAuthenticated
               ?  <>
                   <LinkContainer to="/uploaddata">
-                    <NavItem>Data</NavItem>
+                    <NavItem>Data Manager</NavItem>
+                  </LinkContainer>
+                  <LinkContainer to="/ReportBuilderV1">
+                    <NavItem>Report Builder</NavItem>
                   </LinkContainer>
                 </>
               : <>

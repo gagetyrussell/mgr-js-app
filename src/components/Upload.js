@@ -13,10 +13,10 @@ const baseStyle = {
   padding: '20px',
   borderWidth: 2,
   borderRadius: 2,
-  borderColor: '#c2c2c2',
+  borderColor: '#4d9448',
   borderStyle: 'dashed',
-  backgroundColor: '#c7c7c7',
-  color: '#2e2e2e',
+  backgroundColor: '#fafafa',
+  color: '#4d9448',
   outline: 'none',
   transition: 'border .24s ease-in-out'
 };
@@ -31,13 +31,6 @@ const acceptStyle = {
 
 const rejectStyle = {
   borderColor: '#ff1744'
-};
-
-function getUserName() {
-  Auth.currentAuthenticatedUser()
-  .then(user => {
-    return user;
-  })
 };
 
 
@@ -69,57 +62,35 @@ function MyDropzone(user) {
             data: formData,
             options: options
           });
-          console.log(file)
-          console.log(result.username)
           return result;
-
-
-            // do stuff with axios now
-
-            //userdata = useState(result)
-            // console.log('gage',result)
         });
-
-        //console.log(file.name)
-        //console.log(binaryStr)
       }
 
       reader.readAsArrayBuffer(file)
     })
 
   }, [])
-  const {getRootProps, getInputProps} = useDropzone({onDrop, accept: 'application/vnd.ms-excel, text/plain, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
-
+  const {getRootProps, getInputProps, isDragActive, isDragReject, isDragAccept} = useDropzone({onDrop, accept: 'application/vnd.ms-excel, text/plain, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
+  const style = useMemo(() => ({
+    ...baseStyle,
+    ...(isDragActive ? activeStyle : {}),
+    ...(isDragAccept ? acceptStyle : {}),
+    ...(isDragReject ? rejectStyle : {})
+  }), [
+    isDragActive,
+    isDragReject
+  ]);
   return (
-    <div {...getRootProps()}>
+    <div {...getRootProps({style})}>
       <input {...getInputProps()} />
-      <p>Drag 'n' drop some files here, or click to select files</p>
+      <p className="uploadtext">Drag 'n' drop some files here, or click to select files</p>
     </div>
   )
 };
 
-
-
-// MovieLibrary.getGenres = function() {
-//   var promise = new Promise(function(resolve, reject) {
-//     /* missing implementation */
-//     resolve(result);
-//   });
-//
-//   return promise;
-// };
-//
-
-
 export default function Upload(props) {
-  // getUserName()
   const useDropZone = MyDropzone()
-  // console.log(useDropZone)
-  // Auth.currentAuthenticatedUser()
-  // .then(function(user) {
-  //   return user;
-  // })
-  // .catch(() => console.log("Not signed in"));
+
   return (
     <div className="dropzone">
       { useDropZone }
