@@ -1,4 +1,5 @@
 import Upload from "../components/Upload"
+import FileTable from "../components/FileTable"
 import React from "react";
 
 export default function UploadDataPage(props) {
@@ -6,6 +7,7 @@ export default function UploadDataPage(props) {
     <div>
 
       <Upload {...props} />
+      <FileTable {...props} />
 
     </div>
   );
