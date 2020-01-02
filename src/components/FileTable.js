@@ -62,14 +62,14 @@ class FileTable extends React.Component {
           headerStyle: {
             backgroundColor: '#4d9448',
             color: '#FFF',
-            fontSize: 16
+            fontSize: 17
           },
           rowStyle: {
             backgroundColor: '#EEE',
             fontSize: 100
           },
           cellStyle: {
-            fontSize: 12
+            fontSize: 14
           },
           searchFieldStyle: {
             fontSize: 12,
