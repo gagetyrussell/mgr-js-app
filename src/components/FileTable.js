@@ -8,7 +8,6 @@ import _ from 'lodash'
 import MaterialTable from 'material-table';
 import Upload from "./Upload"
 
-
 class FileTable extends React.Component {
   constructor(props) {
     super(props);
@@ -59,7 +58,23 @@ class FileTable extends React.Component {
         ]}
         data={this.state.files.data}
         options={{
-          selection: true
+          selection: true,
+          headerStyle: {
+            backgroundColor: '#4d9448',
+            color: '#FFF',
+            fontSize: 16
+          },
+          rowStyle: {
+            backgroundColor: '#EEE',
+            fontSize: 100
+          },
+          cellStyle: {
+            fontSize: 12
+          },
+          searchFieldStyle: {
+            fontSize: 12,
+            width: '200px'
+          }
         }}
       />
     )
