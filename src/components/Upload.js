@@ -57,7 +57,6 @@ function MyDropzone(user) {
                 file_name: file.name
               }
             })
-          console.log(signed_url.data.fields)
           const formData = new FormData();
           Object.keys(signed_url.data.fields).forEach(key => {
             formData.append(key, signed_url.data.fields[key]);
@@ -112,7 +111,7 @@ function MyDropzone(user) {
 //
 
 
-export default function Accept(props) {
+export default function Upload(props) {
   // getUserName()
   const useDropZone = MyDropzone()
   // console.log(useDropZone)
@@ -122,7 +121,7 @@ export default function Accept(props) {
   // })
   // .catch(() => console.log("Not signed in"));
   return (
-    <div className="container">
+    <div className="dropzone">
       { useDropZone }
     </div>
   );
