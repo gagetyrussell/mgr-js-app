@@ -25,3 +25,9 @@ input.form-control {
 input[type=file] {
   width: 100%;
 }
+
+.logofont {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  color: "#4d9448";
+}
