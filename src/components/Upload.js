@@ -88,7 +88,7 @@ function MyDropzone(user) {
     })
 
   }, [])
-  const {getRootProps, getInputProps} = useDropzone({onDrop, accept: 'application/vnd.ms-excel, text/plain'})
+  const {getRootProps, getInputProps} = useDropzone({onDrop, accept: 'application/vnd.ms-excel, text/plain, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
 
   return (
     <div {...getRootProps()}>
