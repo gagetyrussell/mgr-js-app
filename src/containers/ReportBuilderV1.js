@@ -67,7 +67,7 @@ class ReportBuilderV1 extends React.Component {
     var elements=[];
     for(var i=0;i<this.state.count;i++){
          // push the component to elements!
-        elements.push(<CardList value={ arr[i] } />);
+        elements.push(<CardList id={ arr[i] } value={ arr[i] } />);
     }
     return (
       <div>
