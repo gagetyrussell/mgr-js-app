@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Scatter from "./Scatter"
 //import Dropdown from 'react-dropdown'
 import 'antd/dist/antd.css';
 
@@ -53,6 +54,9 @@ const Box = () => (
       <Dropdown.Button overlay={menu} >
         Select Data Source
       </Dropdown.Button>
+      <div id="plot">
+        <Scatter id="plot"/>
+      </div>
     </CardContent>
   </Card>
 );
