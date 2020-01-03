@@ -3,7 +3,6 @@ import MGRAPI from "../utils/MGRAPI";
 import { Auth } from "aws-amplify";
 import axios from "axios";
 import { useTable } from 'react-table'
-import styled from 'styled-components'
 import _ from 'lodash'
 import MaterialTable from 'material-table';
 import Upload from "./Upload"
