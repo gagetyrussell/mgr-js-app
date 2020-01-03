@@ -27,7 +27,7 @@ class Scatter extends React.Component {
               },
               {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
             ]}
-            layout={ {title: 'A Fancy Plot'} }
+            layout={ {title: 'Add A Fancy Plot'} }
           />
       </div>
     )
