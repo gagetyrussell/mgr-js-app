@@ -1,8 +1,7 @@
 import React from 'react';
-import { Dropdown, Menu, Icon, message, Select } from 'antd';
+import { Dropdown, Menu, Icon, message } from 'antd';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import Scatter from "./Scatter"
 //import Dropdown from 'react-dropdown'
 import 'antd/dist/antd.css';
@@ -34,13 +33,6 @@ const menu = (
   </Menu>
 );
 
-
-const Option = Select.Option;
-
-
-const options = [
-  'one', 'two', 'three'
-]
 const Box = () => (
   <Card variant="outlined">
     <CardContent>

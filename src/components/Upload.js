@@ -1,4 +1,4 @@
-import React, {useMemo, useCallback, useEffect, useState} from 'react';
+import React, {useMemo, useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
 import MGRAPI from "../utils/MGRAPI";
 import { Auth } from "aws-amplify";

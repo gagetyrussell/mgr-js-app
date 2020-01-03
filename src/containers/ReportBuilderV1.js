@@ -1,10 +1,7 @@
-import ReactDOM from 'react-dom';
-import React, {useMemo, useCallback, useEffect, useState} from 'react';
+import React from 'react';
 import MGRAPI from "../utils/MGRAPI";
 import { Auth } from "aws-amplify";
 import _ from 'lodash'
-import MaterialTable from 'material-table';
-
 import CardList from '../components/CardList'
 
 class ReportBuilderV1 extends React.Component {
