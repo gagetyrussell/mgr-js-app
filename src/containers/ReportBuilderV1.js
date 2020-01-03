@@ -2,8 +2,6 @@ import ReactDOM from 'react-dom';
 import React, {useMemo, useCallback, useEffect, useState} from 'react';
 import MGRAPI from "../utils/MGRAPI";
 import { Auth } from "aws-amplify";
-import axios from "axios";
-import { useTable } from 'react-table'
 import _ from 'lodash'
 import MaterialTable from 'material-table';
 

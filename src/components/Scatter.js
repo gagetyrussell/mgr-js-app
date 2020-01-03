@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Plotly from 'plotly.js-dist';
 import Plot from 'react-plotly.js';
 
 class Scatter extends React.Component {
