@@ -2,10 +2,8 @@ import React, {useMemo, useCallback, useEffect, useState} from 'react';
 import MGRAPI from "../utils/MGRAPI";
 import { Auth } from "aws-amplify";
 import axios from "axios";
-import { useTable } from 'react-table'
 import _ from 'lodash'
 import MaterialTable from 'material-table';
-import Upload from "./Upload"
 
 class FileTable extends React.Component {
   constructor(props) {
@@ -13,7 +11,7 @@ class FileTable extends React.Component {
     this.props = props;
     this.state = {
       q: {},
-      files: [],
+      files: {},
     };
     console.log(this.props)
 
