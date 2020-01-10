@@ -69,8 +69,14 @@ function App(props) {
                   <LinkContainer to="/uploaddata">
                     <NavItem>Data Manager</NavItem>
                   </LinkContainer>
+                  <LinkContainer to="/ChartEditor2">
+                    <NavItem>Chart Editor</NavItem>
+                  </LinkContainer>
                   <LinkContainer to="/ReportBuilderV1">
                     <NavItem>Report Builder</NavItem>
+                  </LinkContainer>
+                  <LinkContainer to="/AssteManagement">
+                    <NavItem>Asset Management</NavItem>
                   </LinkContainer>
                 </>
               : <>
