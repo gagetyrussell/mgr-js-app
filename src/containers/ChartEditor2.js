@@ -4,7 +4,9 @@ import PlotlyEditor from 'react-chart-editor';
 import 'react-chart-editor/lib/react-chart-editor.css';
 import Nav from './Nav';
 import dataSources from './dataSources';
-import UploadChart from '../components/UploadChart'
+import UploadChart from '../components/UploadChart';
+import MGRAPI from "../utils/MGRAPI";
+import { Auth } from "aws-amplify";
 
 const dataSourceOptions = Object.keys(dataSources).map(name => ({
   value: name,
@@ -29,26 +31,39 @@ class ChartEditor2 extends Component {
   }
 
   componentWillMount() {
-    fetch('https://api.github.com/repos/plotly/plotly.js/contents/test/image/mocks')
-      .then(response => response.json())
-      .then(mocks => this.setState({mocks}));
+    Auth.currentAuthenticatedUser().then(async result => {
+      let mocks = await MGRAPI.get('/getDataByUser', {
+          params: {
+            user_id: result.username,
+          }
+        })
+        console.log(mocks)
+        this.setState({ mocks })
+      });
+    // fetch('https://api.github.com/repos/plotly/plotly.js/contents/test/image/mocks')
+    //   .then(response => {
+          //   response.json();
+          //   console.log(response.json());
+          // });
+    //   .then(mocks => this.setState({mocks}));
   }
 
   loadMock(mockIndex) {
-    const mock = this.state.mocks[mockIndex];
-    fetch(mock.url, {
-      headers: new Headers({Accept: 'application/vnd.github.v3.raw'}),
-    })
-      .then(response => response.json())
-      .then(figure => {
-        this.setState({
-          currentMockIndex: mockIndex,
-          data: figure.data,
-          layout: figure.layout,
-          frames: figure.frames,
-        });
-        console.log(this.state)
-      });
+    console.log(mockIndex);
+    // const mock = this.state.mocks[mockIndex];
+    // fetch(mock.url, {
+    //   headers: new Headers({Accept: 'application/vnd.github.v3.raw'}),
+    // })
+    //   .then(response => response.json())
+    //   .then(figure => {
+    //     this.setState({
+    //       currentMockIndex: mockIndex,
+    //       data: figure.data,
+    //       layout: figure.layout,
+    //       frames: figure.frames,
+    //     });
+    //     console.log(this.state)
+    //   });
   }
 
   render() {
