@@ -4,6 +4,7 @@ import PlotlyEditor from 'react-chart-editor';
 import 'react-chart-editor/lib/react-chart-editor.css';
 import Nav from './Nav';
 import dataSources from './dataSources';
+import UploadChart from '../components/UploadChart'
 
 const dataSourceOptions = Object.keys(dataSources).map(name => ({
   value: name,
@@ -66,6 +67,10 @@ class ChartEditor2 extends Component {
           useResizeHandler
           debug
           advancedTraceTypeSelector
+        />
+        <UploadChart
+          data={this.state.data}
+          layout={this.state.layout}
         />
         <Nav
           currentMockIndex={this.state.currentMockIndex}
