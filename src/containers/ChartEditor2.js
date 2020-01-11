@@ -32,38 +32,38 @@ class ChartEditor2 extends Component {
 
   componentWillMount() {
     Auth.currentAuthenticatedUser().then(async result => {
-      let mocks = await MGRAPI.get('/getDataByUser', {
+      let mock_objects = await MGRAPI.get('/getChartsByUser', {
           params: {
             user_id: result.username,
           }
         })
-        console.log(mocks)
-        this.setState({ mocks })
+        const mocks = mock_objects.data
+        console.log('mocks:',mocks)
+        console.log('mocks.data:',mocks.data)
+        this.setState({mocks})
+        console.log('state:',this.state)
       });
-    // fetch('https://api.github.com/repos/plotly/plotly.js/contents/test/image/mocks')
-    //   .then(response => {
-          //   response.json();
-          //   console.log(response.json());
-          // });
-    //   .then(mocks => this.setState({mocks}));
+//     fetch('https://api.github.com/repos/plotly/plotly.js/contents/test/image/mocks')
+//       .then(response =>  response.json())
+//       .then(mocks => this.setState({mocks}));
   }
 
   loadMock(mockIndex) {
     console.log(mockIndex);
-    // const mock = this.state.mocks[mockIndex];
-    // fetch(mock.url, {
-    //   headers: new Headers({Accept: 'application/vnd.github.v3.raw'}),
-    // })
-    //   .then(response => response.json())
-    //   .then(figure => {
-    //     this.setState({
-    //       currentMockIndex: mockIndex,
-    //       data: figure.data,
-    //       layout: figure.layout,
-    //       frames: figure.frames,
-    //     });
-    //     console.log(this.state)
-    //   });
+//     const mock = this.state.mocks[mockIndex];
+//     fetch(mock.url, {
+//       headers: new Headers({Accept: 'application/vnd.github.v3.raw'}),
+//     })
+//       .then(response => response.json())
+//       .then(figure => {
+//         this.setState({
+//           currentMockIndex: mockIndex,
+//           data: figure.data,
+//           layout: figure.layout,
+//           frames: figure.frames,
+//         });
+//         console.log(this.state)
+//       });
   }
 
   render() {
