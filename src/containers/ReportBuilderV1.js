@@ -13,7 +13,6 @@ class ReportBuilderV1 extends React.Component {
       files: [],
       count: 1
     };
-    console.log(this.state)
 
     this.refreshData = this.refreshData.bind(this);
     this.filterQueryRefresh = _.debounce(this.filterQueryRefresh.bind(this), 200);
@@ -21,7 +20,7 @@ class ReportBuilderV1 extends React.Component {
 
   refreshData() {
     Auth.currentAuthenticatedUser().then(async result => {
-      let files = await MGRAPI.get('/getDataByUser', {
+      let files = await MGRAPI.get('/listDataByUser', {
           params: {
             user_id: result.username,
           }
@@ -33,7 +32,7 @@ class ReportBuilderV1 extends React.Component {
     const query = this.state.q;
 
     Auth.currentAuthenticatedUser().then(async result => {
-      let files = await MGRAPI.get('/getDataByUser', {
+      let files = await MGRAPI.get('/listDataByUser', {
           params: {
             user_id: result.username,
           }

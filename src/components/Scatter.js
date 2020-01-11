@@ -8,7 +8,6 @@ class Scatter extends React.Component {
     this.state = {
       data: {},
     };
-    console.log(this.props)
   }
 
 
