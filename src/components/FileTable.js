@@ -49,7 +49,7 @@ class FileTable extends React.Component {
       <MaterialTable
         title="Files"
         columns={[
-          { title: 'name', field: 'key' },
+          { title: 'name', field: 'name' },
           { title: 'size', field: 'size' },
           { title: 'last modified', field: 'mod' },
         ]}

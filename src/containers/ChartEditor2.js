@@ -4,6 +4,9 @@ import PlotlyEditor from 'react-chart-editor';
 import 'react-chart-editor/lib/react-chart-editor.css';
 import Nav from './Nav';
 import dataSources from './dataSources';
+import UploadChart from '../components/UploadChart';
+import MGRAPI from "../utils/MGRAPI";
+import { Auth } from "aws-amplify";
 
 const dataSourceOptions = Object.keys(dataSources).map(name => ({
   value: name,
@@ -28,26 +31,54 @@ class ChartEditor2 extends Component {
   }
 
   componentWillMount() {
-    fetch('https://api.github.com/repos/plotly/plotly.js/contents/test/image/mocks')
-      .then(response => response.json())
-      .then(mocks => this.setState({mocks}));
+    Auth.currentAuthenticatedUser().then(async result => {
+      let mock_objects = await MGRAPI.get('/getSavedChartsByUser', {
+          params: {
+            user_id: result.username,
+          }
+        })
+        const mocks = mock_objects.data
+        console.log('mocks:',mocks)
+        console.log('mocks.data:',mocks.data)
+        this.setState({mocks})
+        console.log('state:',this.state)
+      });
+//     fetch('https://api.github.com/repos/plotly/plotly.js/contents/test/image/mocks')
+//       .then(response =>  response.json())
+//       .then(mocks => this.setState({mocks}));
   }
 
   loadMock(mockIndex) {
+    console.log(mockIndex);
     const mock = this.state.mocks[mockIndex];
-    fetch(mock.url, {
-      headers: new Headers({Accept: 'application/vnd.github.v3.raw'}),
-    })
-      .then(response => response.json())
-      .then(figure => {
+    console.log(mock.key)
+    Auth.currentAuthenticatedUser().then(async result => {
+      let figure = await MGRAPI.get('/getSavedChartJson', {
+          params: {
+            key: mock.key,
+          }
+        })
+        console.log('file', figure);
         this.setState({
           currentMockIndex: mockIndex,
-          data: figure.data,
-          layout: figure.layout,
+          data: Object.keys(figure.data.data).map(i => figure.data.data[i]),
+          layout: figure.data.layout,
           frames: figure.frames,
         });
-        console.log(this.state)
       });
+//     fetch(mock.url, {
+//       headers: new Headers({Accept: 'application/vnd.github.v3.raw'}),
+//     })
+//       .then(response => response.json())
+//       .then(figure => {
+        // this.setState({
+        //   currentMockIndex: mockIndex,
+        //   data: figure.data,
+        //   layout: figure.layout,
+        //   frames: figure.frames,
+        // });
+//         console.log(this.state)
+//       });
   }
 
   render() {
@@ -66,6 +97,10 @@ class ChartEditor2 extends Component {
           useResizeHandler
           debug
           advancedTraceTypeSelector
+        />
+        <UploadChart
+          data={this.state.data}
+          layout={this.state.layout}
         />
         <Nav
           currentMockIndex={this.state.currentMockIndex}
