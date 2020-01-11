@@ -32,7 +32,7 @@ class ChartEditor2 extends Component {
 
   componentWillMount() {
     Auth.currentAuthenticatedUser().then(async result => {
-      let mock_objects = await MGRAPI.get('/getChartsByUser', {
+      let mock_objects = await MGRAPI.get('/getSavedChartsByUser', {
           params: {
             user_id: result.username,
           }
@@ -50,18 +50,33 @@ class ChartEditor2 extends Component {
 
   loadMock(mockIndex) {
     console.log(mockIndex);
-//     const mock = this.state.mocks[mockIndex];
+    const mock = this.state.mocks[mockIndex];
+    console.log(mock.key)
+    Auth.currentAuthenticatedUser().then(async result => {
+      let figure = await MGRAPI.get('/getSavedChartJson', {
+          params: {
+            key: mock.key,
+          }
+        })
+        console.log('file', figure);
+        this.setState({
+          currentMockIndex: mockIndex,
+          data: Object.keys(figure.data.data).map(i => figure.data.data[i]),
+          layout: figure.data.layout,
+          frames: figure.frames,
+        });
+      });
 //     fetch(mock.url, {
 //       headers: new Headers({Accept: 'application/vnd.github.v3.raw'}),
 //     })
 //       .then(response => response.json())
 //       .then(figure => {
-//         this.setState({
-//           currentMockIndex: mockIndex,
-//           data: figure.data,
-//           layout: figure.layout,
-//           frames: figure.frames,
-//         });
+        // this.setState({
+        //   currentMockIndex: mockIndex,
+        //   data: figure.data,
+        //   layout: figure.layout,
+        //   frames: figure.frames,
+        // });
 //         console.log(this.state)
 //       });
   }

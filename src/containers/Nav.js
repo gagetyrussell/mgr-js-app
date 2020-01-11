@@ -14,9 +14,9 @@ const Nav = ({mocks, currentMockIndex, loadMock}) => (
         noResultsText="No Results"
         className="open-top"
         classNamePrefix="Select"
-        placeholder="plotly.js/contents/test/image/mocks"
+        placeholder="saved charts..."
         options={mocks.map((item, i) => ({
-          label: item.key,
+          label: item.name,
           value: i,
         }))}
         value={currentMockIndex}
