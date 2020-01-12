@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 import MGRAPI from "../utils/MGRAPI";
 import { Auth } from "aws-amplify";
-import _ from 'lodash'
-import CardList from '../components/CardList'
+import _ from 'lodash';
+import CardList from '../components/CardList';
 
 class ReportBuilderV1 extends React.Component {
   constructor(props) {
