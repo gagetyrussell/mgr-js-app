@@ -19,7 +19,6 @@ export default class UploadChart extends React.Component {
 
     handleChange = ({ target }) => {
         this.setState({ filename: target.value });
-        console.log(this.state);
     };
 
 
@@ -27,13 +26,7 @@ export default class UploadChart extends React.Component {
         const chart = {}
         chart["data"] = { ...data };
         chart["layout"] = { ...layout };
-
-        console.log('chart', chart);
-        console.log('fiiiiiiiiile', file_name)
-
         var chartJSON = JSON.stringify(chart);
-
-        console.log('json', chartJSON);
 
         Auth.currentAuthenticatedUser().then(async result => {
             let signed_url = await MGRAPI.get('/getPresignedUserChartUrl', {
@@ -42,8 +35,6 @@ export default class UploadChart extends React.Component {
                     file_name: file_name
                 }
             });
-
-            console.log('url', signed_url);
 
             const formData = new FormData();
             Object.keys(signed_url.data.fields).forEach(key => {
@@ -67,7 +58,6 @@ export default class UploadChart extends React.Component {
 
     render() {
 
-        console.log(this.props);
         const named = this.state.filename === "default";
         return (
             <div>
