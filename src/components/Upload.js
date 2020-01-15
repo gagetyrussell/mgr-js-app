@@ -70,7 +70,7 @@ function MyDropzone(user) {
     })
 
   }, [])
-  const {getRootProps, getInputProps, isDragActive, isDragReject, isDragAccept} = useDropzone({onDrop, accept: 'application/vnd.ms-excel, text/plain, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
+  const {getRootProps, getInputProps, isDragActive, isDragReject, isDragAccept} = useDropzone({onDrop, accept: 'application/vnd.ms-excel, text/plain, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, .csv'})
   const style = useMemo(() => ({
     ...baseStyle,
     ...(isDragActive ? activeStyle : {}),
