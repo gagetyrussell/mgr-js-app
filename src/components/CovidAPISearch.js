@@ -56,9 +56,9 @@ class covidAPISearch extends Component {
             <Option value="/api/v1/states/daily.json">Historical State Data</Option>
             <Option value="/api/v1/states/info.json">State Info</Option>
             <Option value="/api/v1/us/current.json">Current US Data</Option>
-            <Option value="/api/us/daily">Current US Data</Option>
-            <Option value="/api/counties">Current US Data</Option>
-            <Option value="/api/press">Current US Data</Option>
+            <Option value="/api/us/daily">Historical US Data</Option>
+            <Option value="/api/counties">Other Countries</Option>
+            <Option value="/api/press">Press</Option>
           </Select>
         )
       }
