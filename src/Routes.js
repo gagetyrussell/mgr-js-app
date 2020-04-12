@@ -11,8 +11,7 @@ import UploadDataPage from "./containers/UploadDataPage";
 import ReportBuilderV1 from "./containers/ReportBuilderV1";
 import AssteManagement from "./containers/AssteManagement"
 import ChartEditor2 from "./containers/ChartEditor2"
-
-
+import Covid19Editor from "./containers/Covid19Editor"
 
 
 export default function Routes({ appProps }) {
@@ -27,6 +26,8 @@ export default function Routes({ appProps }) {
       <AppliedRoute path="/ReportBuilderV1" exact component={ReportBuilderV1} appProps={appProps} />
       <AppliedRoute path="/AssteManagement" exact component={AssteManagement} appProps={appProps} />
       <AppliedRoute path="/ChartEditor2" exact component={ChartEditor2} appProps={appProps} />
+      <AppliedRoute path="/Covid19Editor" exact component={Covid19Editor} appProps={appProps} />
+
       { /* Finally, catch all unmatched routes */ }
       <Route component={NotFound} />
     </Switch>

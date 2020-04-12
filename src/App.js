@@ -66,6 +66,9 @@ function App(props) {
           <Nav pullLeft>
             {isAuthenticated
               ?  <>
+                  <LinkContainer to="/Covid19Editor">
+                    <NavItem>Covid-19 Chart Editor</NavItem>
+                  </LinkContainer>
                   <LinkContainer to="/uploaddata">
                     <NavItem>Data Manager</NavItem>
                   </LinkContainer>
