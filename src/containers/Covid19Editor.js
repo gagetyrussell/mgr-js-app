@@ -28,7 +28,8 @@ class Covid19Editor extends Component {
             mocks: [],
             dataSources: {},
             dataSourceOptions: {},
-            data_selected: false
+            data_selected: false,
+            logged_in: false
         };
 
         this.loadMock = this.loadMock.bind(this);
@@ -65,11 +66,13 @@ class Covid19Editor extends Component {
 
     componentWillMount() {
         Auth.currentAuthenticatedUser().then(async result => {
+            console.log("logged", result)
             let mock_objects = await MGRAPI.get('/getSavedChartsByUser', {
                 params: {
                     user_id: result.username,
                 }
             })
+            this.setState({logged_in: true})
             const mocks = mock_objects.data
             this.setState({ mocks })
         });
@@ -160,6 +163,7 @@ class Covid19Editor extends Component {
                     advancedTraceTypeSelector
                 />
                 <UploadChart
+                    disabled={!this.state.logged_in}
                     refreshData={this.refreshData}
                     data={this.state.data}
                     layout={this.state.layout}

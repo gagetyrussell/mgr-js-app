@@ -57,7 +57,7 @@ export default class UploadChart extends React.Component {
 
 
     render() {
-
+        console.log(Auth.currentAuthenticatedUser())
         const named = this.state.filename === "default";
         return (
             <div>
@@ -69,7 +69,7 @@ export default class UploadChart extends React.Component {
                     </Form.Item>
                     <Form.Item>
                       <Tooltip title="You must be logged in to save">
-                        <Button disabled={Auth.currentAuthenticatedUser()} onClick={() => this.saveChartJSON(this.props.data, this.props.layout, this.state.filename)} type="primary">Save Chart</Button>
+                        <Button disabled={this.props.disabled} onClick={() => this.saveChartJSON(this.props.data, this.props.layout, this.state.filename)} type="primary">Save Chart</Button>
                       </Tooltip>
                     </Form.Item>
                 </Form>
