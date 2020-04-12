@@ -13,7 +13,7 @@ export default function Home() {
         <Link to="/Covid19Editor">
           <p>Covid-19 Chart Editor</p>
         </Link>
-        <p>Or you can create and account/login and gain the ability to save and share your covid-19 analyses</p>
+        <p>Or you can create an account/login and gain the ability to save and share your covid-19 analyses</p>
         <Link to="/signup">
           <p>Covid-19 Chart Editor</p>
         </Link>
