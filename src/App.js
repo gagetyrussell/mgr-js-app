@@ -83,6 +83,9 @@ function App(props) {
                   </LinkContainer>
                 </>
               : <>
+                  <LinkContainer to="/Covid19Editor">
+                    <NavItem>Covid-19 Chart Editor</NavItem>
+                  </LinkContainer>
                 </>
             }
           </Nav>

@@ -1,6 +1,6 @@
 import React, { useMemo, useCallback } from 'react';
 import MGRAPI from "../utils/MGRAPI";
-import { message, Input, Button, Form } from 'antd';
+import { message, Input, Button, Form, Tooltip } from 'antd';
 import { Auth } from "aws-amplify";
 import axios from "axios";
 
@@ -68,7 +68,9 @@ export default class UploadChart extends React.Component {
                             onChange={this.handleChange} />
                     </Form.Item>
                     <Form.Item>
-                        <Button onClick={() => this.saveChartJSON(this.props.data, this.props.layout, this.state.filename)} type="primary">Save Chart</Button>
+                      <Tooltip title="You must be logged in to save">
+                        <Button disabled={Auth.currentAuthenticatedUser()} onClick={() => this.saveChartJSON(this.props.data, this.props.layout, this.state.filename)} type="primary">Save Chart</Button>
+                      </Tooltip>
                     </Form.Item>
                 </Form>
             </div>

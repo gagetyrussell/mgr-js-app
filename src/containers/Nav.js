@@ -4,7 +4,7 @@ import Dropdown from 'react-chart-editor/lib/components/widgets/Dropdown';
 
 const Nav = ({mocks, currentMockIndex, loadMock}) => (
   <div className="mock-nav">
-    <span className="mock-nav__label">Select mock:</span>
+    <span className="mock-nav__label">Saved Charts:</span>
     <div className="mock-nav__select">
       <Dropdown
         name="mock-dropdown"
